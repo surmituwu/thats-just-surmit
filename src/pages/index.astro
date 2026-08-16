@@ -1,0 +1,291 @@
+---
+const writings = [
+  {
+    date: "16 AUG 2026",
+    title: "The First Entry",
+    description: "Why I wanted to make a place on the internet.",
+    tag: "PERSONAL",
+  },
+  {
+    date: "—",
+    title: "Something will eventually live here",
+    description: "The first of many unnecessary rabbit holes.",
+    tag: "RABBIT HOLE",
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Surmit's Place</title>
+    <meta
+      name="description"
+      content="A personal corner of the internet belonging to Surmit."
+    />
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <div class="logo">SURMIT</div>
+        <div class="year">2026 — ∞</div>
+      </header>
+
+      <section class="intro">
+        <p class="eyebrow">PERSONAL LIBRARY</p>
+        <h1>A place for things<br />I find interesting.</h1>
+        <p class="description">
+          Writings, rabbit holes, things I've made, and things I didn't want
+          to forget.
+        </p>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="library">
+        <div class="section-heading">
+          <span>01</span>
+          <h2>WRITINGS</h2>
+        </div>
+
+        <div class="entries">
+          {writings.map((writing) => (
+            <article class="entry">
+              <div class="entry-date">{writing.date}</div>
+
+              <div class="entry-content">
+                <h3>{writing.title}</h3>
+                <p>{writing.description}</p>
+              </div>
+
+              <div class="entry-tag">{writing.tag}</div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="library-grid">
+        <div class="section-heading">
+          <span>02</span>
+          <h2>EXPLORE</h2>
+        </div>
+
+        <div class="explore">
+          <a href="#">RABBIT HOLES <span>↗</span></a>
+          <a href="#">THINGS <span>↗</span></a>
+          <a href="#">PROJECTS <span>↗</span></a>
+          <a href="#">ABOUT <span>↗</span></a>
+        </div>
+      </section>
+
+      <footer>
+        <span>© SURMIT</span>
+        <span>BUILT IN 2026</span>
+      </footer>
+    </main>
+  </body>
+</html>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Manrope:wght@400;500;600;700&display=swap");
+
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #f4f3ef;
+    color: #171717;
+    font-family: "Manrope", sans-serif;
+  }
+
+  main {
+    width: min(1100px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 0;
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+
+  .logo {
+    font-weight: 400;
+  }
+
+  .year {
+    color: #777;
+  }
+
+  .intro {
+    padding: 130px 0 120px;
+    max-width: 800px;
+  }
+
+  .eyebrow,
+  .section-heading span,
+  .entry-date,
+  .entry-tag {
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+
+  .eyebrow {
+    color: #777;
+    margin-bottom: 28px;
+  }
+
+  h1 {
+    font-size: clamp(48px, 7vw, 86px);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .description {
+    max-width: 500px;
+    margin-top: 36px;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .divider {
+    height: 1px;
+    background: #d5d4cf;
+  }
+
+  .library {
+    padding: 70px 0 100px;
+  }
+
+  .section-heading {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    align-items: baseline;
+    margin-bottom: 42px;
+  }
+
+  .section-heading span {
+    color: #999;
+  }
+
+  h2 {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 150px 1fr 120px;
+    gap: 30px;
+    padding: 28px 0;
+    border-top: 1px solid #deddd8;
+    transition: padding 0.2s ease;
+  }
+
+  .entry:hover {
+    padding-left: 12px;
+  }
+
+  .entry-date,
+  .entry-tag {
+    color: #888;
+  }
+
+  .entry-content h3 {
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    margin: 0 0 8px;
+  }
+
+  .entry-content p {
+    color: #777;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .entry-tag {
+    text-align: right;
+  }
+
+  .library-grid {
+    padding: 70px 0 110px;
+  }
+
+  .explore {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .explore a {
+    color: #171717;
+    text-decoration: none;
+    border-top: 1px solid #deddd8;
+    padding: 24px 0;
+    font-size: 15px;
+    transition: padding 0.2s ease;
+  }
+
+  .explore a:hover {
+    padding-left: 10px;
+  }
+
+  .explore span {
+    float: right;
+    color: #999;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 28px 0 40px;
+    color: #999;
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 700px) {
+    main {
+      width: min(100% - 32px, 1100px);
+    }
+
+    .intro {
+      padding: 90px 0;
+    }
+
+    .entry {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .entry-tag {
+      text-align: left;
+    }
+
+    .section-heading {
+      grid-template-columns: 45px 1fr;
+    }
+
+    .explore {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
